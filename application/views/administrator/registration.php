@@ -25,36 +25,59 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Form Login</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Form Registration</h1>
                                     </div>
-                                    <form class="user" method="post" action="<?= base_url('administrator/auth/login') ?>">
+                                    <form class="user" method="post" action="<?= base_url('administrator/auth/registration') ?>">
                                         <div class="form-group">
+                                        <span class="badge badge-custom">Email</span>
                                             <input type="email" class="form-control "
                                                 id="email" name="email" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter Email Address..." value="<?= set_value('email') ?>">
 
                                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
+                                        <span class="badge badge-custom">Password</span>
                                             <input type="password" class="form-control"
                                                 id="password" name="password" placeholder="Enter Password">
 
                                                 <?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
+                                        <span class="badge badge-custom">Username</span>
+                                            <input type="text" class="form-control "
+                                                id="username" name="username"
+                                                placeholder="Enter username" value="<?= set_value('username') ?>">
+
+                                                <?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                                         </div>
+                                        <div class="form-group">
+                                        <span class="badge badge-custom">Full name</span>
+                                            <input type="text" class="form-control "
+                                                id="full_name" name="full_name"
+                                                placeholder="Enter full name" value="<?= set_value('full_name') ?>">
+
+                                                <?= form_error('full_name', '<small class="text-danger pl-3">', '</small>') ?>
+                                        </div>
+                                        <div class="form-group">
+                                        <span class="badge badge-custom">Level user</span>
+                                            <select class="form-control" id="level_id" name="level_id" value="<?= set_value('level_id') ?>">
+                                                <option value="" disabled selected>Select an option</option>
+                                                <option value="1" <?= set_value('level_id') == '1' ? 'selected' : '' ?>>User</option>
+                                                <option value="2" <?= set_value('level_id') == '2' ? 'selected' : '' ?>>Admin</option>
+                                            </select>
+
+                                                <?= form_error('level_id', '<small class="text-danger pl-3">', '</small>') ?>
+                                        </div>
+
+                                        
                                         <button type="submit" class="btn btn-danger btn-block">
-                                            Login
+                                            Registration
                                         </button>
                                         <hr>
                                         
                                     <div class="text-center">
-                                        <a class="large text-danger" href="<?= base_url('/administrator/auth/registration') ?>">Create an Account!</a>
+                                        <a class="large text-danger" href="<?= base_url('/administrator/auth') ?>">Already have an account?</a>
                                     </div>
                                 </div>
                             </div>
